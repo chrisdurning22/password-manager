@@ -1,10 +1,10 @@
 <?php
 	$username = $_POST['a'];
-	$password = $_POST['b'];
+	$password = password_hash($_POST['b'], PASSWORD_DEFAULT);
 
 	$servername = "localhost";
-	$user = "chris";
-	$pass = "v1p2l6xb";
+	$user = "root";
+	$pass = "chrisdurning";
 	$dbname = "pw_manager";
 
 	$usernameExists = false;

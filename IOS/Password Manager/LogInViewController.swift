@@ -12,8 +12,7 @@ class ViewController: UIViewController, UITextFieldDelegate, ServerModelProtocol
     
     //MARK: Properties
     @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var emailNameLabel: UILabel!
-    
+    @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var createAccountButton: UIButton!
     
     @IBOutlet weak var logInButton: UIButton!
@@ -53,6 +52,24 @@ class ViewController: UIViewController, UITextFieldDelegate, ServerModelProtocol
     //MARK: Actions
     @IBAction func logInButton(_ sender: UIButton) {
         //self.emailNameLabel.text = x.userName
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        
+        let postString = "&user=\(email)&pass=\(password)"
+        
+        guard let url = URL(string: "http://178.62.107.63/account_confirmation.php") else { return }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = postString.data(using: String.Encoding.utf8)
+        
+        let session = URLSession.shared
+        session.dataTask(with: request) { (data, response, error) in
+            print(response);
+        }.resume()
+//        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        let newViewController = storyBoard.instantiateViewController(withIdentifier: "3")
+//        self.present(newViewController, animated: true, completion: nil)
     }
     
     //MARK: UITextFieldDelegate

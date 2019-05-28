@@ -1,0 +1,39 @@
+24/5/19
+
+Problem:
+
+Here we had an exception getting throw as a result of an array being empty. I added a breakpoint at the point of the expection (Show breakpoint > + > Exception Breakpoint) which brought me to the empty array. The array in question was supposed to be receiving data directly from the server but for some reason it wasn't, which points to a problem server side.
+
+Solution:
+
+The password for accessing the SQL database was incorrect. I corrected it.
+
+Error:
+
+Data downloaded
+Error Domain=NSCocoaErrorDomain Code=3840 "Invalid value around character 0." UserInfo={NSDebugDescription=Invalid value around character 0.}
+2019-05-24 12:33:39.019890+0100 Password Manager[48380:1542742] *** Terminating app due to uncaught exception 'NSRangeException', reason: '*** -[__NSArrayM objectAtIndexedSubscript:]: index 0 beyond bounds for empty array'
+*** First throw call stack:
+(
+	0   CoreFoundation                      0x00000001101a529b __exceptionPreprocess + 331
+	1   libobjc.A.dylib                     0x000000010f741735 objc_exception_throw + 48
+	2   CoreFoundation                      0x00000001100ef8fc _CFThrowFormattedException + 194
+	3   CoreFoundation                      0x00000001100ccf37 -[__NSArrayM objectAtIndexedSubscript:] + 151
+	4   Password Manager                    0x000000010edffa0c $S16Password_Manager14ViewControllerC15itemsDownloaded0E0ySo7NSArrayC_tF + 156
+	5   Password Manager                    0x000000010ee0085e $S16Password_Manager14ViewControllerCAA19ServerModelProtocolA2aDP15itemsDownloaded0H0ySo7NSArrayC_tFTW + 30
+	6   Password Manager                    0x000000010ee04688 $S16Password_Manager11ServerModelC9parseJSONyy10Foundation4DataVFyycfU_ + 248
+	7   Password Manager                    0x000000010ee046f1 $S16Password_Manager11ServerModelC9parseJSONyy10Foundation4DataVFyycfU_TA + 17
+	8   Password Manager                    0x000000010ee0472d $SIeg_IeyB_TR + 45
+	9   libdispatch.dylib                   0x00000001125795d1 _dispatch_call_block_and_release + 12
+	10  libdispatch.dylib                   0x000000011257a63e _dispatch_client_callout + 8
+	11  libdispatch.dylib                   0x00000001125879d6 _dispatch_main_queue_callback_4CF + 1541
+	12  CoreFoundation                      0x00000001101087f9 __CFRUNLOOP_IS_SERVICING_THE_MAIN_DISPATCH_QUEUE__ + 9
+	13  CoreFoundation                      0x0000000110102e86 __CFRunLoopRun + 2342
+	14  CoreFoundation                      0x0000000110102221 CFRunLoopRunSpecific + 625
+	15  GraphicsServices                    0x00000001192541dd GSEventRunModal + 62
+	16  UIKitCore                           0x0000000113500115 UIApplicationMain + 140
+	17  Password Manager                    0x000000010ee012e7 main + 71
+	18  libdyld.dylib                       0x00000001125f0551 start + 1
+)
+libc++abi.dylib: terminating with uncaught exception of type NSException
+(lldb) 

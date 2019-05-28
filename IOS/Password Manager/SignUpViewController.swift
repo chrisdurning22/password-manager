@@ -34,7 +34,7 @@ class SignUpViewController: UIViewController {
         return emailTest.evaluate(with: testStr)
     }
     
-    func isEqualToString(pass:String, confirmPass:String) -> Bool {
+    func doPasswordsMatch(pass:String, confirmPass:String) -> Bool {
         return pass == confirmPass
     }
     
@@ -44,38 +44,42 @@ class SignUpViewController: UIViewController {
         guard let password = passwordTextField.text else { return }
         guard let confirmPassword = rePasswordTextField.text else { return }
         
-        let postString = "&a=\(email)&b=\(password)"
-        
-        guard let url = URL(string: "http://178.128.38.155/insert.php") else { return }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.httpBody = postString.data(using: String.Encoding.utf8)
-        
-        let session = URLSession.shared
-        session.dataTask(with: request) { (data, response, errorif) in
-            if let response = response {
-                print(response)
-            }
+        if(isFormatCorrect(email: email, pass: password, conf: confirmPassword)) {
+            let postString = "&a=\(email)&b=\(password)"
             
-            guard let data = data else { return }
+            guard let url = URL(string: "http://178.62.107.63/insert.php") else { return }
             
-            let dataAsString = String(data: data, encoding: .utf8)
-            print(dataAsString)
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            request.httpBody = postString.data(using: String.Encoding.utf8)
             
-        }.resume()
-        
-        updateSignalInformation(email: email, pass: password, conf: confirmPassword)
+            let session = URLSession.shared
+            session.dataTask(with: request) { (data, response, error) in
+                if let response = response {
+                    print(response)
+                }
+                
+                guard let data = data else { return }
+                
+                let dataAsString = String(data: data, encoding: .utf8)
+                print(dataAsString!);
+                
+                }.resume()
+        }
     }
     
-    func updateSignalInformation(email:String, pass:String, conf: String) {
+    func isFormatCorrect(email:String, pass:String, conf: String) -> Bool {
         self.signalLabel.text = ""
         
         if(!isValidEmail(testStr: email)) {
             self.signalLabel.text = "The email address that you've entered is not valid. Please enter a valid email address."
-        } else if (!isEqualToString(pass: pass, confirmPass: conf)) {
-            self.signalLabel.text = "The passwords you've entered do not match."
+            return false;
         }
+        else if (!doPasswordsMatch(pass: pass, confirmPass: conf)) {
+            self.signalLabel.text = "The passwords you've entered do not match."
+            return false;
+        }
+        return true;
     }
     
     /*

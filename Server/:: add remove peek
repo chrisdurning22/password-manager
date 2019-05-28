@@ -1,0 +1,27 @@
+// add remove peek
+
+public class Queue {
+	
+	Node head;
+	public Queue() {
+		head = null;
+	}
+
+	public void add(int n) {
+		if(head == null) {
+			head = new Node(n, null);
+		}
+		else {
+			while(n.next = null) {
+				n = n.next;
+			}
+			n.next = new Node(n, null);
+		}
+	}
+
+	public int remove() {
+		Node n = head;
+		head = head.next;
+		return n;	
+	}
+}

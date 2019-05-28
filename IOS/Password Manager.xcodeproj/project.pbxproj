@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3342AF09215AA8880016FB76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3342AF08215AA8880016FB76 /* AppDelegate.swift */; };
-		3342AF0B215AA8880016FB76 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3342AF0A215AA8880016FB76 /* ViewController.swift */; };
+		3342AF0B215AA8880016FB76 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3342AF0A215AA8880016FB76 /* LogInViewController.swift */; };
 		3342AF0E215AA8880016FB76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3342AF0C215AA8880016FB76 /* Main.storyboard */; };
 		3342AF13215AA88A0016FB76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3342AF11215AA88A0016FB76 /* LaunchScreen.storyboard */; };
 		3342AF1E215AA88A0016FB76 /* Password_ManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3342AF1D215AA88A0016FB76 /* Password_ManagerTests.swift */; };
@@ -17,6 +17,7 @@
 		3358786921658497007DAD84 /* ServerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3358786821658497007DAD84 /* ServerModel.swift */; };
 		3358786B21680BDA007DAD84 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3358786A21680BDA007DAD84 /* SignUpViewController.swift */; };
 		3371E9DD2172B61200AD87A3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3371E9DC2172B61200AD87A3 /* Images.xcassets */; };
+		33CD6C67229BFAAE00462984 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CD6C66229BFAAE00462984 /* AccountViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +40,7 @@
 /* Begin PBXFileReference section */
 		3342AF05215AA8880016FB76 /* Password Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Password Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3342AF08215AA8880016FB76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3342AF0A215AA8880016FB76 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3342AF0A215AA8880016FB76 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		3342AF0D215AA8880016FB76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3342AF12215AA88A0016FB76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3342AF14215AA88A0016FB76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,6 +55,7 @@
 		3358786A21680BDA007DAD84 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		336EF1E02173AC390012CA8C /* Password Manager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Password Manager.entitlements"; sourceTree = "<group>"; };
 		3371E9DC2172B61200AD87A3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		33CD6C66229BFAAE00462984 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,8 +109,9 @@
 				336EF1E02173AC390012CA8C /* Password Manager.entitlements */,
 				3371E9DC2172B61200AD87A3 /* Images.xcassets */,
 				3342AF08215AA8880016FB76 /* AppDelegate.swift */,
-				3342AF0A215AA8880016FB76 /* ViewController.swift */,
+				3342AF0A215AA8880016FB76 /* LogInViewController.swift */,
 				3358786A21680BDA007DAD84 /* SignUpViewController.swift */,
+				33CD6C66229BFAAE00462984 /* AccountViewController.swift */,
 				3342AF0C215AA8880016FB76 /* Main.storyboard */,
 				3342AF11215AA88A0016FB76 /* LaunchScreen.storyboard */,
 				3342AF14215AA88A0016FB76 /* Info.plist */,
@@ -272,8 +275,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3342AF0B215AA8880016FB76 /* ViewController.swift in Sources */,
+				3342AF0B215AA8880016FB76 /* LogInViewController.swift in Sources */,
 				3342AF09215AA8880016FB76 /* AppDelegate.swift in Sources */,
+				33CD6C67229BFAAE00462984 /* AccountViewController.swift in Sources */,
 				3358786721658288007DAD84 /* HomeModel.swift in Sources */,
 				3358786921658497007DAD84 /* ServerModel.swift in Sources */,
 				3358786B21680BDA007DAD84 /* SignUpViewController.swift in Sources */,

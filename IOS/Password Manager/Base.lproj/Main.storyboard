@@ -127,6 +127,7 @@
                         <outlet property="createAccountButton" destination="bIC-ce-iq9" id="OHs-og-vJq"/>
                         <outlet property="emailTextField" destination="Mbo-nY-1hp" id="E30-ze-aBQ"/>
                         <outlet property="logInButton" destination="Yst-cu-Fce" id="i4I-56-D4M"/>
+                        <outlet property="passwordTextField" destination="zIK-AO-QIF" id="LMI-w8-t06"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -264,6 +265,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oBc-DX-I0K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="920.79999999999995" y="133.5832083958021"/>
+        </scene>
+        <!--Account View Controller-->
+        <scene sceneID="dLh-5E-G7u">
+            <objects>
+                <viewController storyboardIdentifier="3" id="Beq-q1-lrq" customClass="AccountViewController" customModule="Password_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VK5-H2-ojc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="yq1-dh-mVl"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Ym-Sb-JW7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1700" y="134"/>
         </scene>
     </scenes>
     <resources>

@@ -22,7 +22,7 @@ class ServerModel: NSObject, URLSessionDataDelegate {
     
     var data = Data()
     
-    let urlPath: String = "http://178.128.38.155/service.php" //this will be changed to the path where service.php lives
+    let urlPath: String = "http://178.62.107.63/service.php" //this will be changed to the path where service.php lives
     
     func downloadItems() {
         
@@ -33,8 +33,10 @@ class ServerModel: NSObject, URLSessionDataDelegate {
             
             if error != nil {
                 print("Failed to download data")
+                print(error)
             }else {
                 print("Data downloaded")
+               
                 self.parseJSON(data!)
             }
             
@@ -49,6 +51,8 @@ class ServerModel: NSObject, URLSessionDataDelegate {
         
         do{
             jsonResult = try JSONSerialization.jsonObject(with: data, options:JSONSerialization.ReadingOptions.allowFragments) as! NSArray
+            print(type(of: try JSONSerialization.jsonObject(with: data, options:JSONSerialization.ReadingOptions.allowFragments)))
+            
             
         } catch let error as NSError {
             print(error)
