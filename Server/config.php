@@ -1,9 +1,16 @@
 <?php
-	// Create connection
-	$conn = new mysqli("localhost","root","chrisdurning","pw_manager");
-	
-	// Check connection
-	if ($conn->connect_error) {
-	    die("Connection failed: " . $conn->connect_error);
-	} 
+	$servername = "localhost";
+	$user = "root";
+	$pass = "chrisdurning";
+	$dbname = "pw_manager";
+
+	$usernameExists = false;
+
+	try {
+		$pdo = new PDO("mysql:host=$servername;dbname=$dbname", $user, $pass);
+	}
+	catch(PDOException $e) {
+		print "Error!: " . $e->getMessage() . "<br/>";
+    	die();
+	}
 ?>

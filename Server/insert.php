@@ -2,30 +2,17 @@
 	$username = $_POST['a'];
 	$password = password_hash($_POST['b'], PASSWORD_DEFAULT);
 
-	$servername = "localhost";
-	$user = "root";
-	$pass = "chrisdurning";
-	$dbname = "pw_manager";
-
-	$usernameExists = false;
-
-	try {
-		$DBH = new PDO("mysql:host=$servername;dbname=$dbname", $user, $pass);
-	}
-	catch(PDOException $e) {
-		print "Error!: " . $e->getMessage() . "<br/>";
-    	die();
-	}
+	include('config.php');
 
 	try {
 
-		$stmt = $DBH->prepare("SELECT * FROM users WHERE userName = ?");
+		$stmt = $pdo->prepare("SELECT * FROM users WHERE userName = ?");
 		$stmt->execute($username);
 
 		if($stmt->rowCount()) {
 			$usernameExists = true;
 		} else {
-			$stmt = $DBH->prepare("INSERT INTO users (userName, userPassword) VALUES (?, ?)");
+			$stmt = $pdo->prepare("INSERT INTO users (userName, userPassword) VALUES (?, ?)");
 			$stmt->bindParam(1, $name);
 			$stmt->bindParam(2, $value);
 
@@ -38,7 +25,7 @@
 		echo json_encode($usernameExists);
 	}
 	catch (Exception $e) {
-		$DBH->rollBack();
+		$pdo->rollBack();
 		print "Error!: " . $e->getMessage() . "<br/>";
 	}
 ?>
