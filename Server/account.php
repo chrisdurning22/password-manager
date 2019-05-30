@@ -15,13 +15,11 @@
 		$stmt = $pdo->prepare('SELECT * FROM account_data WHERE userName = ?');
 		$stmt->execute([$username]);
 
-		while($row = $stmt->fetch()) {
+		while($row = $stmt->fetchObject()) {
 			array_push($resultsArray, $row);
 		}
 
-		echo $resultsArray[0][1];
-		echo $resultsArray[1][1];
-		echo json_encode($resultArray); 
+		echo json_encode($resultsArray); 
 	} 
 	catch (Exception $e) {
 		$pdo->rollBack();

@@ -1,13 +1,14 @@
 <?php
 		//REMEMBER TO UNCOMMENT WHEN TESTING IN XCODE
-	 	if(isset($_POST['user']) and isset($_POST['pass'])) {
-	 		$username = $_POST['user'];
-			$password = $_POST['pass'];
+	 	if(isset($_GET['user']) and isset($_GET['pass'])) {
+	 		$username = $_GET['user'];
+			$password = $_GET['pass'];
+			
+			// $username = "chris@hotmail.com";
+			// $password = "qwerty";
 	
-			// for testing (using URL variables)
-			// $username = $_GET['user'];
-			// $password = $_GET['pass'];
-			//
+			// use to post data
+			// $_POST['user'];
 	 	 
 	 		include('config.php');
 

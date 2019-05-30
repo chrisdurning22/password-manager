@@ -4,8 +4,6 @@
 	$pass = "chrisdurning";
 	$dbname = "pw_manager";
 
-	$usernameExists = false;
-
 	try {
 		$pdo = new PDO("mysql:host=$servername;dbname=$dbname", $user, $pass);
 	}

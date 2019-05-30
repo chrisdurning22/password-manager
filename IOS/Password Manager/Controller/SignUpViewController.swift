@@ -10,7 +10,6 @@ import UIKit
 
 class SignUpViewController: UIViewController {
     
-    
     @IBOutlet weak var emailTextField: UITextField!
     
     @IBOutlet weak var signUpButton: UIButton!
@@ -20,7 +19,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var rePasswordTextField: UITextField!
     
     @IBOutlet weak var signalLabel: UILabel!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -58,13 +57,7 @@ class SignUpViewController: UIViewController {
                 if let response = response {
                     print(response)
                 }
-                
-                guard let data = data else { return }
-                
-                let dataAsString = String(data: data, encoding: .utf8)
-                print(dataAsString!);
-                
-                }.resume()
+            }.resume()
         }
     }
     
@@ -72,11 +65,11 @@ class SignUpViewController: UIViewController {
         self.signalLabel.text = ""
         
         if(!isValidEmail(testStr: email)) {
-            self.signalLabel.text = "The email address that you've entered is not valid. Please enter a valid email address."
+            self.signalLabel.text = "The email address that you've entered is not valid. Please enter a valid email address.";
             return false;
         }
         else if (!doPasswordsMatch(pass: pass, confirmPass: conf)) {
-            self.signalLabel.text = "The passwords you've entered do not match."
+            self.signalLabel.text = "The passwords you've entered do not match.";
             return false;
         }
         return true;

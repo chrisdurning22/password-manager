@@ -4,12 +4,15 @@
 
 	include('config.php');
 
+	$usernameExists = false;
+
 	try {
 
 		$stmt = $pdo->prepare("SELECT * FROM users WHERE userName = ?");
-		$stmt->execute($username);
+		$stmt->execute([$username]);
+		$row = $stmt->fetch();
 
-		if($stmt->rowCount()) {
+		if($row) {
 			$usernameExists = true;
 		} else {
 			$stmt = $pdo->prepare("INSERT INTO users (userName, userPassword) VALUES (?, ?)");
