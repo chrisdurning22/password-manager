@@ -9,14 +9,14 @@
 import UIKit
 
 class AccountViewController: UIViewController {
-    
- 
+  
+    var accounts = NSMutableArray()
  
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print(accounts.count)
     }
-
+    
     /*
     // MARK: - Navigation
 

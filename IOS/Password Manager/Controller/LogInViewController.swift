@@ -10,10 +10,12 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
+
 class LoginViewController: UIViewController {
     
     let ACCOUNT_CONFIRMATION_URL = "http://178.62.107.63/account_confirmation.php"
     
+    var accounts = NSMutableArray()
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var createAccountButton: UIButton!
@@ -37,6 +39,13 @@ class LoginViewController: UIViewController {
         getAccountData(url: ACCOUNT_CONFIRMATION_URL, email: email, pass: password)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToAccountView" {
+            let destAccountVC = segue.destination as! AccountViewController
+            destAccountVC.accounts = self.accounts
+        }
+    }
+    
     //MARK: - Netowrking
     /***********************************************************************************************/
  
@@ -53,6 +62,7 @@ class LoginViewController: UIViewController {
                 
                 let accountJSON : JSON = JSON(response.result.value!)
                 self.parseJSON(accountJSON)
+                self.performSegue(withIdentifier: "goToAccountView", sender: self)
                 
             } else {
                 print("Error \(String(describing: response.result.error))")
@@ -64,8 +74,7 @@ class LoginViewController: UIViewController {
     //MARK: - Parsing JSON
     /***********************************************************************************************/
     func parseJSON(_ json:JSON) {
-        let accounts = NSMutableArray()
-        
+    
         for (_, subJson):(String, JSON) in json {
             let account = AccountModel();
             account.userName = subJson["userName"].stringValue
